@@ -90,56 +90,56 @@ function AddMed() {
     }
   };
   return (
-    <div>
+    <div  className="px-[3rem] py-[3rem]">
       <span>
-        <b>Current Account Address:</b> {currentaccount}
+        <b  className="font-bold " >Current Account Address:</b> {currentaccount}
       </span>
-      <span
+      {/* <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
       >
         {" "}
         HOME
-      </span>
+      </span> */}
       <br />
-      <h5>Add Medicine Order:</h5>
-      <form onSubmit={handlerSubmitMED}>
+      <h4 className="font-bold mt-5 text-[20px]">Add Medicine Order</h4>
+      <form className="flex gap-2 items-center mt-2 mb-2" onSubmit={handlerSubmitMED}>
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeNameMED}
           placeholder="Medicine Name"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeDesMED}
           placeholder="Medicine Description"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+           className="btn btn-success btn-sm"
           onSubmit={handlerSubmitMED}
         >
           Order
         </button>
       </form>
       <br />
-      <h5>Ordered Medicines:</h5>
-      <table className="table table-bordered">
+      <h5 className="font-semibold text-[20px]">List of Medicines</h5>
+      <table className="table table-sm">
         <thead>
-          <tr>
+          <tr className="bg-base-200">
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Current Stage</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className>
           {Object.keys(MED).map(function (key) {
             return (
-              <tr key={key}>
+              <tr key={key} className="bg-base-200">
                 <td>{MED[key].id}</td>
                 <td>{MED[key].name}</td>
                 <td>{MED[key].description}</td>

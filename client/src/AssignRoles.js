@@ -188,40 +188,39 @@ function AssignRoles() {
   return (
     <div className="px-[3rem] py-[3rem]">
       <span >
-        <b className="font-bold text-blue">  Current User Address :</b> {currentaccount}
-      </span>
+        <b className="font-bold ">  Current User Address :</b> {currentaccount}</span>
       
-      <span
+      {/* <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
       >
         HOME
-      </span>
-      <h4>Raw Material Suppliers:</h4>
-      <form onSubmit={handlerSubmitRMS}>
+      </span> */}
+      <h4 className="font-semibold mt-5 text-[20px]">Raw Material Suppliers</h4>
+      <form className="flex gap-2 items-center mt-2 mb-2" onSubmit={handlerSubmitRMS}>
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangeAddressRMS}
           placeholder="Ethereum Address"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangeNameRMS}
           placeholder="Raw Material Supplier Name"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm  input input-bordered input-sm  "
           type="text"
           onChange={handlerChangePlaceRMS}
           placeholder="Based In"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitRMS}
         >
           Register
@@ -229,17 +228,17 @@ function AssignRoles() {
       </form>
       <table className="table table-sm">
         <thead>
-          <tr>
+          <tr className="bg-base-200 ">
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Place</th>
             <th scope="col">Ethereum Address</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {Object.keys(RMS).map(function (key) {
             return (
-              <tr key={key}>
+              <tr className="bg-base-200 cursor-default" key={key}>
                 <td>{RMS[key].id}</td>
                 <td>{RMS[key].name}</td>
                 <td>{RMS[key].place}</td>
@@ -249,31 +248,31 @@ function AssignRoles() {
           })}
         </tbody>
       </table>
-      <h4>Manufacturers:</h4>
-      <form onSubmit={handlerSubmitMAN}>
+      <h4 className="font-semibold mt-5 text-[20px]">Manufacturers</h4>
+      <form className="flex gap-2 items-center mt-2 mb-2" onSubmit={handlerSubmitMAN}>
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm  input input-bordered input-sm "
           type="text"
           onChange={handlerChangeAddressMAN}
           placeholder="Ethereum Address"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm  input input-bordered input-sm "
           type="text"
           onChange={handlerChangeNameMAN}
           placeholder="Manufacturer Name"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangePlaceMAN}
           placeholder="Based In"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitMAN}
         >
           Register
@@ -281,17 +280,18 @@ function AssignRoles() {
       </form>
       <table className="table table-sm">
         <thead>
-          <tr>
+          <tr className="bg-base-200">
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Place</th>
             <th scope="col">Ethereum Address</th>
           </tr>
         </thead>
+        
         <tbody>
           {Object.keys(MAN).map(function (key) {
             return (
-              <tr key={key}>
+              <tr className="bg-base-200" key={key}>
                 <td>{MAN[key].id}</td>
                 <td>{MAN[key].name}</td>
                 <td>{MAN[key].place}</td>
@@ -301,31 +301,31 @@ function AssignRoles() {
           })}
         </tbody>
       </table>
-      <h4>Distributors:</h4>
-      <form onSubmit={handlerSubmitDIS}>
+      <h4  className="font-semibold mt-5 text-[20px]">Distributors</h4>
+      <form className="flex gap-2 items-center mt-2 mb-2" onSubmit={handlerSubmitDIS}>
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangeAddressDIS}
           placeholder="Ethereum Address"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangeNameDIS}
           placeholder="Distributor Name"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangePlaceDIS}
           placeholder="Based In"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitDIS}
         >
           Register
@@ -333,7 +333,7 @@ function AssignRoles() {
       </form>
       <table className="table table-sm">
         <thead>
-          <tr>
+          <tr className="bg-base-200">
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Place</th>
@@ -343,7 +343,7 @@ function AssignRoles() {
         <tbody>
           {Object.keys(DIS).map(function (key) {
             return (
-              <tr key={key}>
+              <tr className="bg-base-200" key={key}>
                 <td>{DIS[key].id}</td>
                 <td>{DIS[key].name}</td>
                 <td>{DIS[key].place}</td>
@@ -353,31 +353,31 @@ function AssignRoles() {
           })}
         </tbody>
       </table>
-      <h4>Retailers:</h4>
-      <form onSubmit={handlerSubmitRET}>
+      <h4  className="font-semibold mt-5 text-[20px]">Retailers</h4>
+      <form className="flex gap-2 items-center mt-2 mb-2" onSubmit={handlerSubmitRET}>
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangeAddressRET}
           placeholder="Ethereum Address"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangeNameRET}
           placeholder="Retailer Name"
           required
         />
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm "
           type="text"
           onChange={handlerChangePlaceRET}
           placeholder="Based In"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitRET}
         >
           Register
@@ -385,7 +385,7 @@ function AssignRoles() {
       </form>
       <table className="table table-sm">
         <thead>
-          <tr>
+          <tr className="bg-base-200">
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Place</th>
@@ -395,7 +395,7 @@ function AssignRoles() {
         <tbody>
           {Object.keys(RET).map(function (key) {
             return (
-              <tr key={key}>
+              <tr className="bg-base-200" key={key}>
                 <td>{RET[key].id}</td>
                 <td>{RET[key].name}</td>
                 <td>{RET[key].place}</td>

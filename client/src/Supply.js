@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json";
+import { FaArrowRight } from "react-icons/fa";
 
 function Supply() {
   const navigate = useNavigate();
@@ -137,27 +138,74 @@ function Supply() {
     }
   };
   return (
-    <div>
-      <span>
-        <b>Current Account Address:</b> {currentaccount}
-      </span>
-      <span
+    <div className="px-[3rem] py-[3rem]">
+
+      {/* <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
       >
         {" "}
         HOME
-      </span>
-      <h6>
+      </span> */}
+      {/* <h6>
         <b>Supply Chain Flow:</b>
       </h6>
       <p>
         Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt;
         Distributor -&gt; Retailer -&gt; Consumer
-      </p>
-      <table className="table table-sm table-dark">
+      </p> */}
+
+<div className="container mx-auto py-8 mb-5">
+      <h2 className="text-2xl font-bold mb-4">Supply Chain Flow: Medicine</h2>
+      <div className="flex items-center justify-between mt-5 ">
+        {/* <div className="step flex-1">
+          <h3 className="font-semibold">Step One</h3>
+          <h3 className="font-semibold">Medicine Order</h3>
+          <p>Place an order for medicine</p>
+        </div> */}
+        {/* <div className="arrow">&#8594;</div> */}
+        <div className="step flex-1">
+        <h3 className="font-semibold">Step One</h3>
+          <h3 className="font-semibold">Raw Material Supplier</h3>
+          <p>Provides raw materials for manufacturing</p>
+        </div>
+        {/* <div className="arrow">&#8594;</div> */}
+        <FaArrowRight />
+
+        <div className="step flex-1">
+        <h3 className="font-semibold">Step Two</h3>
+          <h3 className="font-semibold">Manufacturer</h3>
+          <p>Produces medicine</p>
+        </div>
+        <FaArrowRight />        <div className="step flex-1">
+        <h3 className="font-semibold">Step Three</h3>
+          <h3 className="font-semibold">Distributor</h3>
+          <p>Distributes medicine to retailers</p>
+        </div>
+        <FaArrowRight />        <div className="step flex-1">
+        <h3 className="font-semibold">Step Four</h3>
+          <h3 className="font-semibold">Retailer</h3>
+          <p>Sells medicine to consumers</p>
+        </div>
+        <FaArrowRight />
+                <div className="step flex-1">
+        <h3 className="font-semibold">Step Five</h3>
+          <h3 className="font-semibold">Consumer</h3>
+          <p>Receives and uses medicine</p>
+        </div>
+      </div>
+      <div className="w-[60%] bg-gray-200 mt-4 rounded-full h-2 relative">
+        <div className="progress bg-blue-500 h-full rounded-full"></div>
+      </div>
+    </div>
+    <div className="mx-auto mt-6 mb-4">
+        <b className="font-bold   ">Current Account Address:</b> {currentaccount}
+      </div>
+    <h4 className="font-bold mt-5 text-[20px]">List of  Medicines:</h4>
+
+      <table className="table border-[2px] mt-2 mb-2 table-sm table-dark">
         <thead>
-          <tr>
+          <tr className="bg-base-200 ">
             <th scope="col">Medicine ID</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
@@ -177,110 +225,111 @@ function Supply() {
           })}
         </tbody>
       </table>
-      <h5>
+      <div className="h-[1px] w-full bg my-8"></div>
+      <h5 className="">
         <b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material
         Supplier can perform this step):-
       </h5>
-      <form onSubmit={handlerSubmitRMSsupply}>
+      <form className="flex gap-2 items-center mt-4 mb-4"  onSubmit={handlerSubmitRMSsupply}>
         <input
-          className="form-control-sm"
+                    className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeID}
           placeholder="Enter Medicine ID"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitRMSsupply}
         >
           Supply
         </button>
       </form>
-      <hr />
+      <div className="h-[1px] w-full bg-[grey] my-3"></div>
       <br />
       <h5>
         <b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform
         this step):-
       </h5>
-      <form onSubmit={handlerSubmitManufacturing}>
+      <form className="flex gap-2 items-center mt-4 mb-4"  onSubmit={handlerSubmitManufacturing}>
         <input
-          className="form-control-sm"
+                    className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeID}
           placeholder="Enter Medicine ID"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitManufacturing}
         >
           Manufacture
         </button>
       </form>
-      <hr />
+      <div className="h-[1px] w-full bg-[grey] my-3"></div>
       <br />
       <h5>
         <b>Step 3: Distribute</b>(Only a registered Distributor can perform this
         step):-
       </h5>
-      <form onSubmit={handlerSubmitDistribute}>
+      <form className="flex gap-2 items-center mt-4 mb-4"  onSubmit={handlerSubmitDistribute}>
         <input
-          className="form-control-sm"
+                    className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeID}
           placeholder="Enter Medicine ID"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitDistribute}
         >
           Distribute
         </button>
       </form>
-      <hr />
+      <div className="h-[1px] w-full bg-[grey] my-3"></div>
       <br />
       <h5>
         <b>Step 4: Retail</b>(Only a registered Retailer can perform this
         step):-
       </h5>
-      <form onSubmit={handlerSubmitRetail}>
+      <form className="flex gap-2 items-center mt-4 mb-4"  onSubmit={handlerSubmitRetail}>
         <input
-          className="form-control-sm"
+                    className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeID}
           placeholder="Enter Medicine ID"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitRetail}
         >
           Retail
         </button>
       </form>
-      <hr />
+      <div className="h-[1px] w-full bg-[grey] my-3"></div>
       <br />
       <h5>
         <b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this
         step):-
       </h5>
-      <form onSubmit={handlerSubmitSold}>
+      <form className="flex gap-2 items-center mt-4 mb-4"  onSubmit={handlerSubmitSold}>
         <input
-          className="form-control-sm"
+                    className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeID}
           placeholder="Enter Medicine ID"
           required
         />
         <button
-          className="btn btn-outline-success btn-sm"
+          className="btn btn-success btn-sm"
           onSubmit={handlerSubmitSold}
         >
           Sold
         </button>
       </form>
-      <hr />
+      <div className="h-[1px] w-full bg-[grey] my-3"></div>
     </div>
   );
 }

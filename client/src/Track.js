@@ -101,118 +101,145 @@ function Track() {
   }
   if (TrackTillSold) {
     return (
-      <div className="container-xl">
-        <article className="col-4">
-          <h3>
-            <b>
-              <u>Medicine:</u>
-            </b>
-          </h3>
-          <span>
-            <b>Medicine ID: </b>
-            {MED[ID].id}
-          </span>
+      <>
+        <div className="p-[3rem]">
+          <button
+            onClick={() => {
+              showTrackTillSold(false);
+            }}
+             className="btn btn-success btn-sm my-2"
+          >
+            Track Another Item
+          </button>
+
+          <article className="col-4 m-auto">
+            <h3>
+              <b>
+                <u className="font-bold mt-5 text-[20px]">Medicine:</u>
+              </b>
+            </h3>
+            <span>
+              <b>Medicine ID: </b>
+              {MED[ID].id}
+            </span>
+            <br />
+            <span>
+              <b>Name:</b> {MED[ID].name}
+            </span>
+            <br />
+            <span>
+              <b>Description: </b>
+              {MED[ID].description}
+            </span>
+            <br />
+            <span>
+              <b>Current stage: </b>
+              {MedStage[ID]}
+            </span>
+          </article>
+          <div className="h-[1px] w-full bg-blue-500 mt-4 "></div>
+
           <br />
-          <span>
-            <b>Name:</b> {MED[ID].name}
-          </span>
-          <br />
-          <span>
-            <b>Description: </b>
-            {MED[ID].description}
-          </span>
-          <br />
-          <span>
-            <b>Current stage: </b>
-            {MedStage[ID]}
-          </span>
-        </article>
-        <hr />
-        <br />
-        <section className="row">
-          <article className="col-3">
-            <h4>
-              <u>Raw Materials Supplied by:</u>
-            </h4>
-            <p>
-              <b>Supplier ID: </b>
-              {RMS[MED[ID].RMSid].id}
-            </p>
-            <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {RMS[MED[ID].RMSid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Manufactured by:</u>
-            </h4>
-            <p>
-              <b>Manufacturer ID: </b>
-              {MAN[MED[ID].MANid].id}
-            </p>
-            <p>
-              <b>Name:</b> {MAN[MED[ID].MANid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {MAN[MED[ID].MANid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Distributed by:</u>
-            </h4>
-            <p>
-              <b>Distributor ID: </b>
-              {DIS[MED[ID].DISid].id}
-            </p>
-            <p>
-              <b>Name:</b> {DIS[MED[ID].DISid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {DIS[MED[ID].DISid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Retailed by:</u>
-            </h4>
-            <p>
-              <b>Retailer ID: </b>
-              {RET[MED[ID].RETid].id}
-            </p>
-            <p>
-              <b>Name:</b> {RET[MED[ID].RETid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {RET[MED[ID].RETid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Sold</u>
-            </h4>
-          </article>
-        </section>
-        <button
-          onClick={() => {
-            showTrackTillSold(false);
-          }}
-          className="btn btn-outline-success btn-sm"
-        >
-          Track Another Item
-        </button>
-        <span
+          <ul className="timeline timeline-vertical">
+            {/* <section className="row"> */}
+
+            <li>
+              <hr className="bg-blue-500" />
+
+              <article className=" timeline-start timeline-box ">
+                <h4>
+                  <u>Raw Materials Supplied by:</u>
+                </h4>
+                <p>
+                  <b>Supplier ID: </b>
+                  {RMS[MED[ID].RMSid].id}
+                </p>
+                <p>
+                  <b>Name:</b> {RMS[MED[ID].RMSid].name}
+                </p>
+                <p>
+                  <b>Place: </b>
+                  {RMS[MED[ID].RMSid].place}
+                </p>
+        
+              </article>
+        
+              <hr className="bg-blue-500" />
+            </li>
+            <li>
+              <hr className="bg-blue-500" />
+
+              <article className="timeline-end timeline-box">
+                <h4>
+                  <u>Manufactured by:</u>
+                </h4>
+                <p>
+                  <b>Manufacturer ID: </b>
+                  {MAN[MED[ID].MANid].id}
+                </p>
+                <p>
+                  <b>Name:</b> {MAN[MED[ID].MANid].name}
+                </p>
+                <p>
+                  <b>Place: </b>
+                  {MAN[MED[ID].MANid].place}
+                </p>
+              </article>
+              <hr className="bg-blue-500" />
+            </li>
+            <li>
+              <hr className="bg-blue-500" />
+
+              <article className="timeline-start timeline-box">
+                <h4>
+                  <u>Distributed by:</u>
+                </h4>
+                <p>
+                  <b>Distributor ID: </b>
+                  {DIS[MED[ID].DISid].id}
+                </p>
+                <p>
+                  <b>Name:</b> {DIS[MED[ID].DISid].name}
+                </p>
+                <p>
+                  <b>Place: </b>
+                  {DIS[MED[ID].DISid].place}
+                </p>
+              </article>
+              <hr className="bg-blue-500" />
+            </li>
+            <li>
+              <hr className="bg-blue-500" />
+
+              <article className="timeline-end timeline-box">
+                <h4>
+                  <u>Retailed by:</u>
+                </h4>
+                <p>
+                  <b>Retailer ID: </b>
+                  {RET[MED[ID].RETid].id}
+                </p>
+                <p>
+                  <b>Name:</b> {RET[MED[ID].RETid].name}
+                </p>
+                <p>
+                  <b>Place: </b>
+                  {RET[MED[ID].RETid].place}
+                </p>
+              </article>
+              <hr className="bg-blue-500" />
+            </li>
+            <li>
+              <hr className="bg-blue-500" />
+
+              <article className="timeline-start timeline-box">
+                <h4>
+                  <u>Sold</u>
+                </h4>
+              </article>
+            </li>
+          </ul>
+          {/* <span
           onClick={() => {
             navigate("/");
           }}
@@ -220,17 +247,27 @@ function Track() {
         >
           {" "}
           HOME
-        </span>
-      </div>
+        </span> */}
+        </div>
+      </>
     );
   }
   if (TrackTillRetail) {
     return (
-      <div className="container-xl">
-        <article className="col-4">
+      <div className="p-[3rem]">
+        <button
+          onClick={() => {
+            showTrackTillSold(false);
+          }}
+           className="btn btn-success btn-sm my-2"
+        >
+          Track Another Item
+        </button>
+
+        <article className="col-4 m-auto">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u className="font-bold mt-5 text-[20px]">Medicine:</u>
             </b>
           </h3>
           <span>
@@ -252,78 +289,91 @@ function Track() {
             {MedStage[ID]}
           </span>
         </article>
-        <hr />
+        <div className="h-[1px] w-full bg-blue-500 mt-4 "></div>
         <br />
-        <section className="row">
-          <article className="col-3">
-            <h4>
-              <u>Raw Materials Supplied by:</u>
-            </h4>
-            <p>
-              <b>Supplier ID: </b>
-              {RMS[MED[ID].RMSid].id}
-            </p>
-            <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {RMS[MED[ID].RMSid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Manufactured by:</u>
-            </h4>
-            <p>
-              <b>Manufacturer ID: </b>
-              {MAN[MED[ID].MANid].id}
-            </p>
-            <p>
-              <b>Name:</b> {MAN[MED[ID].MANid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {MAN[MED[ID].MANid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Distributed by:</u>
-            </h4>
-            <p>
-              <b>Distributor ID: </b>
-              {DIS[MED[ID].DISid].id}
-            </p>
-            <p>
-              <b>Name:</b> {DIS[MED[ID].DISid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {DIS[MED[ID].DISid].place}
-            </p>
-          </article>
-          <span>&#10132;</span>
-          <article className="col-3">
-            <h4>
-              <u>Retailed by:</u>
-            </h4>
-            <p>
-              <b>Retailer ID: </b>
-              {RET[MED[ID].RETid].id}
-            </p>
-            <p>
-              <b>Name:</b> {RET[MED[ID].RETid].name}
-            </p>
-            <p>
-              <b>Place: </b>
-              {RET[MED[ID].RETid].place}
-            </p>
-          </article>
-        </section>
-        <button
+        <ul className="timeline timeline-vertical">
+          <li>
+          <hr className="bg-blue-500" />
+            <article className="timeline-start timeline-box ">
+              <h4>
+                <u>Raw Materials Supplied by:</u>
+              </h4>
+              <p>
+                <b>Supplier ID: </b>
+                {RMS[MED[ID].RMSid].id}
+              </p>
+              <p>
+                <b>Name:</b> {RMS[MED[ID].RMSid].name}
+              </p>
+              <p>
+                <b>Place: </b>
+                {RMS[MED[ID].RMSid].place}
+              </p>
+            </article>
+            <hr className="bg-blue-500" />
+          </li>
+          <li>
+          <hr className="bg-blue-500" />
+
+            <article className="timeline-end timeline-box ">
+              <h4>
+                <u>Manufactured by:</u>
+              </h4>
+              <p>
+                <b>Manufacturer ID: </b>
+                {MAN[MED[ID].MANid].id}
+              </p>
+              <p>
+                <b>Name:</b> {MAN[MED[ID].MANid].name}
+              </p>
+              <p>
+                <b>Place: </b>
+                {MAN[MED[ID].MANid].place}
+              </p>
+            </article>
+            <hr className="bg-blue-500" />
+          </li>
+          <li>
+          <hr className="bg-blue-500" />
+            <article className="timeline-start timeline-box ">
+              <h4>
+                <u>Distributed by:</u>
+              </h4>
+              <p>
+                <b>Distributor ID: </b>
+                {DIS[MED[ID].DISid].id}
+              </p>
+              <p>
+                <b>Name:</b> {DIS[MED[ID].DISid].name}
+              </p>
+              <p>
+                <b>Place: </b>
+                {DIS[MED[ID].DISid].place}
+              </p>
+            </article>
+            <hr className="bg-blue-500" />
+          </li>
+          <li>
+          <hr className="bg-blue-500" />
+            <article className="timeline-end timeline-box ">
+              <h4>
+                <u>Retailed by:</u>
+              </h4>
+              <p>
+                <b>Retailer ID: </b>
+                {RET[MED[ID].RETid].id}
+              </p>
+              <p>
+                <b>Name:</b> {RET[MED[ID].RETid].name}
+              </p>
+              <p>
+                <b>Place: </b>
+                {RET[MED[ID].RETid].place}
+              </p>
+            </article>
+          </li>
+        </ul>
+        {/* <button
           onClick={() => {
             showTrackTillRetail(false);
           }}
@@ -339,17 +389,26 @@ function Track() {
         >
           {" "}
           HOME
-        </span>
+        </span> */}
       </div>
     );
   }
   if (TrackTillDistribution) {
     return (
-      <div className="container-xl">
+      <div className="p-[3rem]">
+        <button
+            onClick={() => {
+              showTrackTillSold(false);
+            }}
+             className="btn btn-success btn-sm my-2"
+          >
+            Track Another Item
+          </button>
+
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+            <u className="font-bold mt-5 text-[20px]">Medicine:</u>
             </b>
           </h3>
           <span>
@@ -371,10 +430,14 @@ function Track() {
             {MedStage[ID]}
           </span>
         </article>
-        <hr />
+        <div className="h-[1px] w-full bg-blue-500 mt-4 "></div>
+
         <br />
-        <section className="row">
-          <article className="col-3">
+        <ul className="timeline timeline-vertical">
+          <li>
+          <hr className="bg-blue-500" />
+
+          <article className="timeline-start timeline-box">
             <h4>
               <u>Raw Materials Supplied by:</u>
             </h4>
@@ -390,8 +453,13 @@ function Track() {
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
-          <span>&#10132;</span>
-          <article className="col-3">
+          <hr className="bg-blue-500" />
+
+          </li>
+          <li>
+          <hr className="bg-blue-500" />
+
+          <article className="timeline-end timeline-box">
             <h4>
               <u>Manufactured by:</u>
             </h4>
@@ -407,8 +475,13 @@ function Track() {
               {MAN[MED[ID].MANid].place}
             </p>
           </article>
-          <span>&#10132;</span>
-          <article className="col-3">
+          <hr className="bg-blue-500" />
+
+          </li>
+          <li>
+          <hr className="bg-blue-500" />
+
+          <article className="timeline-start timeline-box">
             <h4>
               <u>Distributed by:</u>
             </h4>
@@ -424,8 +497,10 @@ function Track() {
               {DIS[MED[ID].DISid].place}
             </p>
           </article>
-        </section>
-        <button
+
+          </li>
+          </ul>
+        {/* <button
           onClick={() => {
             showTrackTillDistribution(false);
           }}
@@ -441,17 +516,25 @@ function Track() {
         >
           {" "}
           HOME
-        </span>
+        </span> */}
       </div>
     );
   }
   if (TrackTillManufacture) {
     return (
-      <div className="container-xl">
+      <div className="p-[3rem]">
+        <button
+            onClick={() => {
+              showTrackTillSold(false);
+            }}
+             className="btn btn-success btn-sm my-2"
+          >
+            Track Another Item
+          </button>
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+            <u className="font-bold mt-5 text-[20px]">Medicine:</u>
             </b>
           </h3>
           <span>
@@ -473,10 +556,12 @@ function Track() {
             {MedStage[ID]}
           </span>
         </article>
-        <hr />
+        <div className="h-[1px] w-full bg-blue-500 mt-4 "></div>
         <br />
-        <section className="row">
-          <article className="col-3">
+        <ul className="timeline timeline-vertical">
+        <li>
+        <hr className="bg-blue-500" />
+          <article className="timeline-start timeline-box">
             <h4>
               <u>Raw Materials Supplied by:</u>
             </h4>
@@ -492,8 +577,13 @@ function Track() {
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
-          <span>&#10132;</span>
-          <article className="col-3">
+          <hr className="bg-blue-500" />
+
+          </li>
+          <li>
+          <hr className="bg-blue-500" />
+
+          <article className="timeline-end timeline-box">
             <h4>
               <u>Manufactured by:</u>
             </h4>
@@ -509,8 +599,10 @@ function Track() {
               {MAN[MED[ID].MANid].place}
             </p>
           </article>
-        </section>
-        <button
+
+          </li>
+        </ul>
+        {/* <button
           onClick={() => {
             showTrackTillManufacture(false);
           }}
@@ -525,18 +617,26 @@ function Track() {
           className="btn btn-outline-danger btn-sm"
         >
           {" "}
-          HOME
-        </span>
+          HOME */}
+        {/* </span> */}
       </div>
     );
   }
   if (TrackTillRMS) {
     return (
-      <div className="container-xl">
-        <article className="col-4">
+      <div className="p-[3rem]">
+      <button
+        onClick={() => {
+          showTrackTillSold(false);
+        }}
+         className="btn btn-success btn-sm"
+      >
+        Track Another Item
+      </button>
+    <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+            <u className="font-bold mt-5 text-[20px]">Medicine:</u>
             </b>
           </h3>
           <span>
@@ -558,10 +658,13 @@ function Track() {
             {MedStage[ID]}
           </span>
         </article>
-        <hr />
+        <div className="h-[1px] w-full bg-blue-500 mt-4 "></div>
         <br />
-        <section className="row">
-          <article className="col-3">
+        <ul className="timeline timeline-vertical">
+          <li>
+          <hr className="bg-blue-500" />
+
+          <article className=" timeline-start timeline-box ">
             <h4>
               <u>Raw Materials Supplied by:</u>
             </h4>
@@ -577,8 +680,11 @@ function Track() {
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
-        </section>
-        <button
+          <hr className="bg-blue-500" />
+
+          </li>
+        </ul>
+        {/* <button
           onClick={() => {
             showTrackTillRMS(false);
           }}
@@ -594,17 +700,25 @@ function Track() {
         >
           {" "}
           HOME
-        </span>
+        </span> */}
       </div>
     );
   }
   if (TrackTillOrdered) {
     return (
-      <div className="container-xl">
-        <article className="col-4">
+      <div className="p-[3rem]">
+      <button
+            onClick={() => {
+              showTrackTillSold(false);
+            }}
+             className="btn btn-success btn-sm my-2"
+          >
+            Track Another Item
+          </button>
+      <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+            <u className="font-bold mt-5 text-[20px]">Medicine:</u>
             </b>
           </h3>
           <span>
@@ -625,10 +739,10 @@ function Track() {
             <b>Current stage: </b>
             {MedStage[ID]}
           </span>
-          <hr />
+          <div className="h-[1px] w-full bg-blue-500 mt-4 "></div>
           <br />
           <h5>Medicine Not Yet Processed...</h5>
-          <button
+          {/* <button
             onClick={() => {
               showTrackTillOrdered(false);
             }}
@@ -643,8 +757,8 @@ function Track() {
             className="btn btn-outline-danger btn-sm"
           >
             {" "}
-            HOME
-          </span>
+            HOME */}
+          {/* </span> */}
         </article>
         {/* <section className="row">
                     
@@ -684,20 +798,22 @@ function Track() {
   };
 
   return (
-    <div>
+    <div className="p-[3rem]">
       <span>
-        <b>Current Account Address:</b> {currentaccount}
+        <b className="font-bold ">Current Account Address:</b> {currentaccount}
       </span>
-      <span
+      {/* <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
       >
         {" "}
         HOME
-      </span>
-      <table className="table table-sm table-bordered">
+      </span> */}
+      <h5 className="font-semibold text-[20px] mt-4">List of Medicines</h5>
+
+      <table className="table table-sm my-5 table-bordered border-[3px]">
         <thead>
-          <tr>
+          <tr className="bg-base-200">
             <th scope="col">Medicine ID</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
@@ -717,20 +833,22 @@ function Track() {
           })}
         </tbody>
       </table>
-      <h5>Enter Medicine ID to Track it</h5>
+      <h5 className="font-semibold text-[20px] mt-2">
+        Enter Medicine ID to Track it
+      </h5>
 
-      <form onSubmit={handlerSubmit}>
+      <form
+        className="flex gap-2 items-center mt-2 mb-2"
+        onSubmit={handlerSubmit}
+      >
         <input
-          className="form-control-sm"
+          className="form-control-sm input input-bordered input-sm"
           type="text"
           onChange={handlerChangeID}
           placeholder="Enter Medicine ID"
           required
         />
-        <button
-          className="btn btn-outline-success btn-sm"
-          onSubmit={handlerSubmit}
-        >
+        <button className="btn btn-success btn-sm" onSubmit={handlerSubmit}>
           Track
         </button>
       </form>
