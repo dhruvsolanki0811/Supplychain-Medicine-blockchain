@@ -186,10 +186,11 @@ function AssignRoles() {
   };
 
   return (
-    <div>
-      <span>
-        <b>Current Account Address:</b> {currentaccount}
+    <div style={{padding:"2rem 2rem"}}>
+      <span >
+        {/* <b> :</b> {currentaccount} */}
       </span>
+      
       <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
