@@ -186,9 +186,9 @@ function AssignRoles() {
   };
 
   return (
-    <div style={{padding:"2rem 2rem"}}>
+    <div className="px-[3rem] py-[3rem]">
       <span >
-        {/* <b> :</b> {currentaccount} */}
+        <b className="font-bold text-blue">  Current User Address :</b> {currentaccount}
       </span>
       
       <span

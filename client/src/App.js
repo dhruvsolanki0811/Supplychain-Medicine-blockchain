@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-theme="sunset">
       <Router>
         <Routes>
           <Route path="/" exact element={<Home />} />
